@@ -5,7 +5,7 @@ COPY . /gitfolio
 WORKDIR /gitfolio
 
 RUN npm install
-RUN node bin/gitfolio.js build scotow --sort star --order desc --theme dark --background 'https://images.unsplash.com/photo-1551895763-554bd1c491eb'
+RUN node bin/gitfolio.js build scotow --sort star --order desc --theme dark --background 'https://images.unsplash.com/photo-1551895763-554bd1c491eb?w=1950&q=80'
 
 RUN mv /gitfolio/dist /html
 RUN rm -rf /gitfolio

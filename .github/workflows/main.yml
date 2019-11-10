@@ -1,11 +1,12 @@
-name: Docker Image
+name: Build and Push the Docker image
+
 on:
   push:
   schedule:
     - cron: '0 0 * * 1'
 
 jobs:
-  publish:
+  publish-web:
     runs-on: ubuntu-latest
     steps:
       - name: Pulling repo

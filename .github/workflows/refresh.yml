@@ -1,0 +1,25 @@
+name: Refresh
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pulling repo
+        uses: actions/checkout@v2
+      - name: Update
+        run: date -Iminutes > LAST_REFRESH.txt
+      - name: Add and commit
+        run: |
+          git add LAST_REFRESH.txt
+          git config --local user.email "3366c6f0+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Refresh $(date -Iminutes)"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

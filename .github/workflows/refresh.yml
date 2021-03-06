@@ -12,10 +12,10 @@ jobs:
       - name: Pulling repo
         uses: actions/checkout@v2
       - name: Update
-        run: date -Iminutes > LAST_REFRESH.txt
+        run: date -Iminutes > LAST_REFRESH
       - name: Add and commit
         run: |
-          git add LAST_REFRESH.txt
+          git add LAST_REFRESH
           git config --local user.email "3366c6f0+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Refresh $(date -Iminutes)"
